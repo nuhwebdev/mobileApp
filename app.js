@@ -4,6 +4,8 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 
+var cors = require("cors")
+
 var indexRouter = require("./routes/index");
 var bilarRouter = require("./routes/bilar");
 
@@ -17,7 +19,7 @@ app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-
+app.use(cors());
 var mongoose = require("mongoose");
 mongoose.connect(
   "mongodb://malakdeluca:LoggaIn123@ac-5kt8vd4-shard-00-00.7t9bgpg.mongodb.net:27017,ac-5kt8vd4-shard-00-01.7t9bgpg.mongodb.net:27017,ac-5kt8vd4-shard-00-02.7t9bgpg.mongodb.net:27017/test?ssl=true&replicaSet=atlas-70v2q2-shard-0&authSource=admin&retryWrites=true&w=majority"
